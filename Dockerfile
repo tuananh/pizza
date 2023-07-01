@@ -15,8 +15,6 @@ RUN --mount=target=/go/pkg/mod,type=cache \
     --mount=target=/root/.cache,type=cache \
     xx-go build -ldflags="${GO_LDFLAGS}" -o pizza-oven .
 
-# Chainguard only has linux/amd64 and linux/arm64 so we might need to switch to 
-# sth else
-FROM cgr.dev/chainguard/glibc-dynamic
+FROM gcr.io/distroless/static-debian11
 COPY --from=builder /app/pizza-oven /usr/bin/
 CMD ["/usr/bin/pizza-oven"]
