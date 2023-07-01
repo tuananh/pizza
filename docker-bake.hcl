@@ -20,5 +20,6 @@ target "build" {
 target "cross" {
   inherits = ["build"]
   platforms = ["linux/amd64", "linux/386", "linux/arm64", "linux/arm", "linux/ppc64le", "linux/s390x", "darwin/amd64", "darwin/arm64", "windows/amd64", "windows/arm64", "freebsd/amd64", "freebsd/arm64"]
-  tags = ["ghcr.io/open-sauced/pizza:${IMAGE_TAG}"]
+  # tags = ["ghcr.io/open-sauced/pizza:${IMAGE_TAG}"]
+  tags = ["ghcr.io/tuananh/pizza:${IMAGE_TAG}"]
 }
