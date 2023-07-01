@@ -13,8 +13,8 @@ WORKDIR /app
 COPY . .
 RUN --mount=target=/go/pkg/mod,type=cache \
     --mount=target=/root/.cache,type=cache \
-    xx-go build -ldflags="${GO_LDFLAGS}" -o pizza-oven .
+    xx-go build -ldflags="${GO_LDFLAGS}"-o pizza-oven .
 
-FROM --platform=${TARGETPLATFORM:-linux/amd64} cgr.dev/chainguard/glibc-dynamic
+FROM cgr.dev/chainguard/glibc-dynamic
 COPY --from=builder /app/pizza-oven /usr/bin/
 CMD ["/usr/bin/pizza-oven"]
