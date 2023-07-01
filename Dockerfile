@@ -15,6 +15,8 @@ RUN --mount=target=/go/pkg/mod,type=cache \
     --mount=target=/root/.cache,type=cache \
     xx-go build -ldflags="${GO_LDFLAGS}" -o pizza-oven .
 
-FROM gcr.io/distroless/static-debian11
+# FROM gcr.io/distroless/static-debian11
+# not sure if scratch would work (ssl needed maybe?)
+FROM scratch
 COPY --from=builder /app/pizza-oven /usr/bin/
 CMD ["/usr/bin/pizza-oven"]
