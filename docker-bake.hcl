@@ -14,6 +14,7 @@ target "build" {
   dockerfile = "Dockerfile"
   args = {
     GO_LDFLAGS = "${GO_LDFLAGS}"
+    IMAGE_TAG = "${IMAGE_TAG}"
   }
 }
 
