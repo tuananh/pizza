@@ -1,4 +1,4 @@
-name: release-pizza-image
+name: Release pizza image
 
 on:
   workflow_dispatch: # for testing
