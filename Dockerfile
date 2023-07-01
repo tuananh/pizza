@@ -2,7 +2,7 @@
 
 FROM --platform=$BUILDPLATFORM tonistiigi/xx:1.1.0 AS xx
 
-FROM --platform=${BUILDPLATFORM:-linux/amd64} cgr.dev/chainguard/go:1.20 AS builder
+FROM --platform=$BUILDPLATFORM golang:1.20-alpine AS builder
 ARG TARGETPLATFORM
 ARG BUILDPLATFORM
 ARG TARGETOS
