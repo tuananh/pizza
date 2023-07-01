@@ -5,6 +5,7 @@ on:
   push:
     branches:
       - main
+      - add-multiarch-release # for testing this
     tags:
       - 'v*'
 
